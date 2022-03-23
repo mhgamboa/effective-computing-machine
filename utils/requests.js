@@ -14,23 +14,23 @@ const requests = {
     url: `/discover/movie?api_key=${API_KEY}&with_genres=28`,
   },
   fetchComedyMovies: {
-    title: "Action",
+    title: "Comedy",
     url: `/discover/movie?api_key=${API_KEY}&with_genres=35`,
   },
   fetchHorrorMovies: {
-    title: "Action",
+    title: "Horror",
     url: `/discover/movie?api_key=${API_KEY}&with_genres=27`,
   },
   fetchRomanceMovies: {
-    title: "Action",
+    title: "Romance",
     url: `/discover/movie?api_key=${API_KEY}&with_genres=10749`,
   },
   fetchMystery: {
-    title: "Action",
+    title: "Mystery",
     url: `/discover/movie?api_key=${API_KEY}&with_genres=9648`,
   },
   fetchScifi: {
-    title: "Action",
+    title: "Scifi",
     url: `/discover/movie?api_key=${API_KEY}&with_genres=878`,
   },
   fetchWestern: {
@@ -38,11 +38,11 @@ const requests = {
     url: `/discover/movie?api_key=${API_KEY}&with_genres=37`,
   },
   fetchAnimation: {
-    title: "Action",
+    title: "Western",
     url: `/discover/movie?api_key=${API_KEY}&with_genres=16`,
   },
   fetchTV: {
-    title: "Action",
+    title: "TV",
     url: `/discover/movie?api_key=${API_KEY}&with_genres=10770`,
   },
 };
