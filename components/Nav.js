@@ -6,29 +6,34 @@ export default function Nav() {
   const router = useRouter();
   const navRef = useRef(null);
 
-  // useEffect(() => {
-  //   const nav = navRef.current;
-  //   nav.addEventListener("wheel", handleWheel);
+  useEffect(() => {
+    const nav = navRef.current;
+    nav.addEventListener("wheel", handleWheel, { passive: false });
+    console.log("added");
 
-  //   return () => {
-  //     nav.removeEventListener("wheel", handleWheel);
-  //   };
-  // });
+    return () => {
+      console.log("removed");
+      nav.removeEventListener("wheel", handleWheel, { passive: false });
+    };
+  });
 
-  // const handleWheel = useCallback(e => {
-  //   e.preventDefault();
-  //   console.log("scroll");
-  //   const navPosition = navRef.current.scrollLeft;
-  //   navRef.current.scrollTo({
-  //     top: 0,
-  //     left: navPosition + e.deltaY + e.deltaX,
-  //     behaviour: "smooth",
-  //   });
-  // }, []);
+  const handleWheel = useCallback(e => {
+    e.preventDefault();
+    let navPosition = navRef.current.scrollLeft;
+
+    navRef.current.scrollTo({
+      top: 0,
+      left: navPosition + e.deltaY + e.deltaX,
+      behaviour: "smooth",
+    });
+  }, []);
 
   return (
-    <nav ref={navRef} className="relative">
-      <div className="flex px-10 sm:px-20 text-2xl whitespace-nowrap space-x-10 sm:space-x-20 overflow-x-scroll scrollbar-hide">
+    <nav className="relative">
+      <div
+        ref={navRef}
+        className="flex px-10 sm:px-20 text-2xl whitespace-nowrap space-x-10 sm:space-x-20 overflow-x-scroll overflow-y-hidden scrollbar-hide"
+      >
         {Object.entries(requests).map(([key, { title, url }]) => {
           return (
             <h2
